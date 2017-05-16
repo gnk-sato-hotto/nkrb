@@ -92,7 +92,7 @@ Nkrb.download_image(image_url, dist_dir, filename)
 url = "http://sushi.com"
 connection = Nkrb.faraday_connection(url)
 res = connection.get do |req|
-  req.url 'search', :page => 2
+  req.url '/search', :page => 2
   req.params['limit'] = 100
 end
 ```
