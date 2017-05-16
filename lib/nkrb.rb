@@ -128,4 +128,10 @@ module Nkrb
   def nokogiri(url, charset='utf-8')
     Nokogiri::HTML.parse(open(url), nil, charset)
   end
+
+
+  def random_str(len=5)
+    o = [('a'..'z'), ('A'..'Z'), ('0'..'9')].map { |i| i.to_a }.flatten
+    (0...len).map { o[rand(o.length)] }.join
+  end
 end

@@ -17,9 +17,100 @@ Or install it yourself as:
 
     $ gem install nkrb
 
-## Usage
+## Methods
+#### 1. read_file
+```
+filename = "./text.txt"
+texts = Nkrb.read_file(filename)
+p texts
 
-TODO: Write usage instructions here
+## => 
+## [
+##  'Hello world',
+##  "I'm your father."
+## ]
+```
+test.txt
+```
+Hello world.
+I'm your father.
+```
+
+#### 2. read_tsv
+```
+filename = "./data.tsv"
+data = Nkrb.read_tsv(filename)
+p data
+
+## => 
+## [
+##  {"id": "1", "name": "satoh"},
+##  {"id": "2", "name": "suzuki"},
+##  {"id": "3", "name": "takahashi"},
+## ]
+```
+
+data.tsv
+```
+id\tname
+1\tsatoh
+2\tsuzuki
+3\ttakahashi
+```
+
+#### 3. pluck
+
+```
+collection = [
+ {"id": "1", "name": "satoh"},
+ {"id": "2", "name": "suzuki"},
+ {"id": "3", "name": "takahashi"},
+]
+p Nkrb.pluck(collection, key: "name")
+## => 
+## [
+##  "satoh", "suzuki", "takahashi"
+## ]
+```
+
+#### 4. download_image
+
+```
+image_url = "https://cdn.pixabay.com/photo/2017/05/15/17/43/calm-2315559_960_720.jpg"
+dist_dir = "/tmp/"
+filename = "nkrb_test_img"
+Nkrb.download_image(image_url, dist_dir, filename)
+
+## ls /tmp/nkrb_test_img.jpg
+## => /tmp/nkrb_test_img.jpg
+```
+
+
+#### 5. faraday_connection
+
+```
+url = "http://sushi.com"
+connection = Nkrb.faraday_connection(url)
+res = connection.get do |req|
+  req.url 'search', :page => 2
+  req.params['limit'] = 100
+end
+```
+
+#### 6. nokogiri
+
+```
+url = "https://www.youtube.com/?hl=ja&gl=JP"
+Nkrb.nokogiri(url)
+```
+
+
+#### 7. random_str
+```
+p Nkrb.random_str(10)
+# => "2vjAkcdB34" 
+```
+
 
 ## Development
 
