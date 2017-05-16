@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["gnk-satoh"]
   spec.email         = ["enr.kkttpp@live.jp"]
 
-  spec.summary       = %q{Very useful ruby lib}
+  spec.summary       = %q{Very useful ruby lib. github: https://github.com/gnk-sato-hotto/nkrb}
   spec.homepage      = "https://www.seiyu-mstdn.club"
   spec.license       = "MIT"
 
