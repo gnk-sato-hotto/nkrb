@@ -124,4 +124,8 @@ module Nkrb
       faraday.adapter  Faraday.default_adapter
     end
   end
+
+  def nokogiri(url, charset='utf-8')
+    Nokogiri::HTML.parse(open(url), nil, charset)
+  end
 end

@@ -1,5 +1,5 @@
 # Nkrb
-Nkrb is a ruby library including very useful methods.
+Nkrb is a ruby library included very useful methods.
 
 ## Installation
 
