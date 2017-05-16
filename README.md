@@ -30,7 +30,7 @@ p texts
 ##  "I'm your father."
 ## ]
 ```
-test.txt
+text.txt
 ```
 Hello world.
 I'm your father.
@@ -62,11 +62,11 @@ id\tname
 
 ```
 collection = [
- {"id": "1", "name": "satoh"},
- {"id": "2", "name": "suzuki"},
- {"id": "3", "name": "takahashi"},
+ {id: "1", name: "satoh"},
+ {id: "2", name: "suzuki"},
+ {id: "3", name: "takahashi"},
 ]
-p Nkrb.pluck(collection, key: "name")
+p Nkrb.pluck(collection, key: :name)
 ## => 
 ## [
 ##  "satoh", "suzuki", "takahashi"
@@ -95,13 +95,15 @@ res = connection.get do |req|
   req.url '/search', :page => 2
   req.params['limit'] = 100
 end
+p res.body
 ```
 
 #### 6. nokogiri
 
 ```
 url = "https://www.youtube.com/?hl=ja&gl=JP"
-Nkrb.nokogiri(url)
+doc = Nkrb.nokogiri(url)
+p doc
 ```
 
 

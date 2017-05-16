@@ -1,7 +1,7 @@
 require "nkrb/version"
 require "open-uri"
-require "FileUtils"
 require 'faraday'
+require 'nokogiri'
 
 module Nkrb
   module_function
@@ -52,7 +52,7 @@ module Nkrb
   # 3. collection の key となるのは一行目の文字列を \t で split した文字列群である
   # 4. 末尾にある改行コードは削除する
   def read_tsv(filename, delimiter: "\t")
-    tsv_data = read_a_file(filename, delimiter: delimiter)
+    tsv_data = read_file(filename, delimiter: delimiter)
     return nil if tsv_data.nil?
     
     begin
@@ -128,7 +128,6 @@ module Nkrb
   def nokogiri(url, charset='utf-8')
     Nokogiri::HTML.parse(open(url), nil, charset)
   end
-
 
   def random_str(len=5)
     o = [('a'..'z'), ('A'..'Z'), ('0'..'9')].map { |i| i.to_a }.flatten
