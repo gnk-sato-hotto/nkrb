@@ -11,7 +11,7 @@ gem 'nkrb'
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
@@ -111,6 +111,27 @@ p doc
 ```
 p Nkrb.random_str(10)
 # => "2vjAkcdB34" 
+```
+
+#### 8. remove_ctr
+```
+ctr_str = "\n\nhello\t"
+p Nkrb.remove_ctr(ctr_str, replace: "")
+# => "  hello "
+```
+
+#### 9.output_tsv
+```
+collection = [
+  {key1: "a1", key2: "a2"},
+  {key1: "a3", key2: "a4"},
+]
+
+Nkrb.output_tsv(collection, delimiter: "\t", required_header: true)
+# => 
+# key1\tkey2
+# a1\ta2
+# a3\ta4
 ```
 
 

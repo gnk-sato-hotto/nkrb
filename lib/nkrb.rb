@@ -134,8 +134,8 @@ module Nkrb
     (0...len).map { o[rand(o.length)] }.join
   end
 
-  def remove_ctr(str)
-    str.gsub(/[[:cntrl:]]/, '')
+  def remove_ctr(str, replace: "")
+    str.gsub(/[[:cntrl:]]/, replace)
   end
 
   def output_tsv(collection, delimiter: "\t", required_header: true)
