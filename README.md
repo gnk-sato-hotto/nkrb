@@ -117,7 +117,7 @@ p Nkrb.random_str(10)
 ```
 ctr_str = "\n\nhello\t"
 p Nkrb.remove_ctr(ctr_str, replace: "")
-# => "  hello "
+# => "hello"
 ```
 
 #### 9.output_tsv
