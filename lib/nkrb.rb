@@ -133,4 +133,21 @@ module Nkrb
     o = [('a'..'z'), ('A'..'Z'), ('0'..'9')].map { |i| i.to_a }.flatten
     (0...len).map { o[rand(o.length)] }.join
   end
+
+  def remove_ctr(str)
+    str.gsub(/[[:cntrl]]/, "")
+  end
+
+  def output_tsv(collection, delimiter: "\t", required_header: true)
+    return if collection.empty?
+    keys = collection.first.keys
+    print "#{keys.join(delimiter)}\n" if required_header
+
+    collection.each do |item|
+      vals = keys.map do |key|
+        item[key]
+      end
+      print "#{vals.join(delimiter)}\n"
+    end
+  end
 end
