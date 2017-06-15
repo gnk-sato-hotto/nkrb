@@ -135,7 +135,7 @@ module Nkrb
   end
 
   def remove_ctr(str)
-    str.gsub(/[[:cntrl]]/, "")
+    str.gsub(/[[:cntrl:]]/, '')
   end
 
   def output_tsv(collection, delimiter: "\t", required_header: true)
