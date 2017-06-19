@@ -29,7 +29,7 @@ module Nkrb
 
           line = delimiter.nil? ? 
                  line.chomp : 
-                 line.chomp.split(delimiter)
+                 line.chomp.split(delimiter, -1)
           lines.push(line)
         end
       end
